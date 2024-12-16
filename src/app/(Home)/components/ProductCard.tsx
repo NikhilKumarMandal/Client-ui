@@ -4,10 +4,18 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card"
 import Image from "next/image";
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+
 
 export type Product = {
     id: string;
@@ -40,9 +48,38 @@ function ProductCard({ product }: PropType) {
         <p className="text-lg font-semibold text-gray-800">
           From <span className="text-primary">${product.price}</span>
         </p>
-        <Button className="bg-green-200 hover:bg-green-300 text-green-600 px-6 py-2 rounded-full shadow-md transition">
-          Choose
-        </Button>
+        <Dialog>
+  <DialogTrigger className="bg-green-200 hover:bg-green-300 text-green-600 px-6 py-2 rounded-full shadow-md transition">Choose</DialogTrigger>
+  <DialogContent className='max-w-3xl p-0'>
+            <div className=' flex'>
+              <div className='w-1/3 bg-white rounded p-8 flex items-center justify-center'>
+                <Image src={'/'} width={450} height={450} alt={ product.name} />
+              </div>
+              <div className='w-2/3 p-8'>
+                <h3 className='text-xl font-bold'>{product.name}</h3>
+                <p className='mt-1'>{product.description}</p>
+                <RadioGroup className="grid grid-cols-3 gap-4 mt-2">
+                                      
+                                 
+                                                <div >
+                                                    <RadioGroupItem
+                                                        value={""}
+                                                        id={""}
+                                                        className="peer sr-only"
+                                                        aria-label={""}
+                                                    />
+                                                    <Label
+                                                        htmlFor={""}
+                      className="flex flex-col items-center justify-between rounded-md border-2 bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
+                                                           </Label>
+                  </div>
+                                          
+                                      
+              </RadioGroup>
+              </div>
+    </div>
+  </DialogContent>
+</Dialog>
       </CardFooter>
     </Card>
   );
