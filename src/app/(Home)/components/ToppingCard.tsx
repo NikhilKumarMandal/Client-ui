@@ -28,7 +28,7 @@ function ToppingCard({ topping,selectedTopping,handleCheckBoxCheck }: PropType) 
           <h4>{topping.name}</h4>  
           <p>&#8377;{topping.price}</p>
           {
-              isCurrentSelected && <CircleCheck className='absolute top-1 right-1 text-primary' />
+            isCurrentSelected && <CircleCheck className='absolute top-1 right-1 text-primary' />
           }
           
     </Button>

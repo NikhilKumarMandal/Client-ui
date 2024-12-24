@@ -35,7 +35,8 @@ const products: Product[] = [
   }
 ]
 
-export default function Home() {
+export default async function Home() {
+  // const categoryResponse = await fetch(``)
   return (
     <>
       {/* Hero Section */}

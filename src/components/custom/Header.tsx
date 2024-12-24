@@ -12,7 +12,7 @@ import { Button } from '../ui/button'
 import { Tenant } from '@/lib/types'
 
 const Header = async () => {
-  const tenantResponse = await fetch(`${process.env.BACKEND_URL}/api/v1/tenant?perPage=100`, {
+  const tenantResponse = await fetch(`${process.env.BACKEND_URL}/api/auth/api/v1/tenant?perPage=100`, {
     next: {
       revalidate: 3600 // 1 hour
     }
